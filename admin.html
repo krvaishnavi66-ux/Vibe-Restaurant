@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Menu • Vibe Restaurant</title>
+    <link rel="stylesheet" href="styles/admin.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="admin-header">
+        <div>
+            <h1>Admin • Vibe Restaurant</h1>
+            <p class="muted">Manage menu and view reports</p>
+        </div>
+        <nav>
+            <a class="btn" href="index.html">← Back to POS</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>Manage Menu</h2>
+            <form id="itemForm" class="grid">
+                <input type="hidden" id="itemId" />
+                <label>
+                    <span>Name</span>
+                    <input id="itemName" required />
+                </label>
+                <label>
+                    <span>Price (₹)</span>
+                    <input id="itemPrice" type="number" min="0" step="0.01" required />
+                </label>
+                <label>
+                    <span>Category</span>
+                    <input id="itemCategory" placeholder="Breakfast, Snacks, Beverages" />
+                </label>
+                <label class="full">
+                    <span>Image URL</span>
+                    <input id="itemImage" placeholder="https://..." />
+                </label>
+                <label class="full">
+                    <span>Description</span>
+                    <input id="itemDesc" />
+                </label>
+                <div class="actions">
+                    <button class="btn primary" type="submit" id="saveBtn">Save Item</button>
+                    <button class="btn ghost" type="button" id="resetBtn">Reset</button>
+                </div>
+            </form>
+            <div class="table-wrap">
+                <table class="table" id="menuTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th><th>Price</th><th>Category</th><th>Image</th><th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Monthly Sales Report</h2>
+            <div class="filters">
+                <label>Month
+                    <input type="month" id="monthPicker" />
+                </label>
+                <button class="btn" id="loadReportBtn">Load</button>
+            </div>
+            <div id="reportSummary" class="muted"></div>
+            <div class="table-wrap">
+                <table class="table" id="salesTable">
+                    <thead>
+                        <tr><th>Date</th><th>Items</th><th>Total</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="scripts/storage.js"></script>
+    <script src="scripts/admin.js"></script>
+    <script>document.addEventListener('DOMContentLoaded',()=> window.Admin.init());</script>
+</body>
+</html>
+
+
+
+
+

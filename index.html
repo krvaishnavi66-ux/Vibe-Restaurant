@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vibe Restaurant</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+</head>
+<body>
+    <header class="app-header">
+        <div class="brand">
+            <h1>Vibe Restaurant</h1>
+            <p class="tagline">Fresh • Fast • Tasty</p>
+        </div>
+        <nav class="header-actions">
+            <a class="btn ghost" href="admin.html">Manage Menu</a>
+            <button id="toggleCartBtn" class="btn">Cart (<span id="cartCount">0</span>)</button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section>
+            <h2 class="section-title">Menu</h2>
+            <div class="filters" id="categoryFilters"></div>
+            <div id="menuGrid" class="menu-grid" aria-live="polite"></div>
+        </section>
+        <section>
+            <h2 class="section-title">Reviews</h2>
+            <div id="reviewsList" class="reviews"></div>
+            <form id="reviewForm" class="review-form">
+                <div class="grid-2">
+                    <label>
+                        <span>Name</span>
+                        <input id="revName" required placeholder="Your name" />
+                    </label>
+                    <label>
+                        <span>Rating</span>
+                        <select id="revRating">
+                            <option value="5">5</option>
+                            <option value="4">4</option>
+                            <option value="3">3</option>
+                            <option value="2">2</option>
+                            <option value="1">1</option>
+                        </select>
+                    </label>
+                </div>
+                <label class="full">
+                    <span>Comment</span>
+                    <textarea id="revComment" rows="3" placeholder="Share your experience..."></textarea>
+                </label>
+                <div>
+                    <button class="btn primary" type="submit">Submit Review</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <aside id="cartPanel" class="cart-panel" aria-hidden="true">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button id="closeCartBtn" class="icon-btn" aria-label="Close cart">✕</button>
+        </div>
+        <div id="cartItems" class="cart-items"></div>
+        <div class="cart-footer">
+            <div class="totals">
+                <div class="row grand"><span>Total</span><span id="totalAmt">₹0.00</span></div>
+            </div>
+            <div class="cart-actions">
+                <button id="clearCartBtn" class="btn ghost">Clear Cart</button>
+                <button id="printBillBtn" class="btn ghost">Print Bill</button>
+                <button id="payNowBtn" class="btn primary">Pay Now</button>
+            </div>
+        </div>
+    </aside>
+
+    <div id="modal" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Payment</h3>
+                <button id="modalCloseBtn" class="icon-btn" aria-label="Close">✕</button>
+            </div>
+            <div id="modalBody" class="modal-body"></div>
+        </div>
+    </div>
+
+    <template id="billTemplate">
+        <section class="bill">
+            <h2>Vibe Restaurant</h2>
+            <p class="muted" id="billDate"></p>
+            <table class="bill-table">
+                <thead>
+                    <tr><th>Item</th><th>Qty</th><th>Price</th><th>Total</th></tr>
+                </thead>
+                <tbody id="billRows"></tbody>
+                <tfoot>
+                    <tr class="grand"><td colspan="3">Total</td><td id="billGrand">₹0.00</td></tr>
+                </tfoot>
+            </table>
+            <p class="center muted">Thank you! Visit again.</p>
+        </section>
+    </template>
+
+    <script src="scripts/storage.js"></script>
+    <script src="scripts/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            window.App.init();
+        });
+    </script>
+</body>
+</html>
+
+

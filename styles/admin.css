@@ -1,0 +1,52 @@
+:root{--bg:#0f1115;--card:#171923;--muted:#8b8fa3;--text:#e6e8f0;--primary:#3b82f6;--border:#24283b}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text)}
+.admin-header{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--border)}
+.muted{color:var(--muted)}
+.btn{border:1px solid var(--border);background:transparent;color:var(--text);padding:10px 14px;border-radius:10px;cursor:pointer}
+.btn.primary{background:var(--primary);border-color:var(--primary);color:#fff}
+.btn.ghost{background:transparent}
+.container{max-width:1100px;margin:0 auto;padding:24px;display:grid;gap:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.grid .full{grid-column:1/-1}
+label{display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--muted)}
+input{background:#0d0f16;border:1px solid var(--border);color:var(--text);padding:10px;border-radius:10px}
+.actions{display:flex;gap:8px}
+.table-wrap{overflow:auto;border:1px solid var(--border);border-radius:12px;margin-top:12px}
+.table{width:100%;border-collapse:collapse;font-size:14px}
+.table th,.table td{border-bottom:1px solid var(--border);padding:10px;text-align:left}
+.table img{width:54px;height:40px;object-fit:cover;border-radius:6px}
+.filters{display:flex;gap:10px;align-items:end;margin:8px 0}
+
+/* Mobile Responsive */
+@media (max-width: 768px){
+  .admin-header{flex-direction:column;align-items:flex-start;gap:12px;padding:16px}
+  .admin-header h1{font-size:18px;margin:0}
+  .container{padding:16px;gap:12px}
+  .grid{grid-template-columns:1fr}
+  .table-wrap{overflow-x:auto}
+  .table{font-size:13px;min-width:600px}
+  .table th,.table td{padding:8px 6px}
+  .table img{width:48px;height:32px}
+  .filters{flex-direction:column;align-items:stretch;gap:8px}
+  .filters label{width:100%}
+  .filters input{width:100%}
+  .actions{flex-direction:column}
+  .actions .btn{width:100%}
+}
+
+@media (max-width: 480px){
+  .admin-header h1{font-size:16px}
+  .admin-header p{font-size:12px}
+  .card{padding:12px}
+  .card h2{font-size:16px}
+  .table{font-size:12px;min-width:500px}
+  .table th,.table td{padding:6px 4px}
+  .btn{font-size:12px;padding:8px 10px}
+  input{font-size:14px;padding:8px}
+  label{font-size:11px}
+}
+
+
