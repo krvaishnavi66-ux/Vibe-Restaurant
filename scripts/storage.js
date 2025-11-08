@@ -19,13 +19,13 @@ window.StorageAPI = (() => {
         const exists = getFromStorage(KEYS.menu);
         if (exists && Array.isArray(exists) && exists.length) return exists;
         const items = [
-            { id: crypto.randomUUID(), name: 'Idly', price: 20, category: 'Breakfast', image: 'https://images.unsplash.com/photo-1628294895950-3c935d1a1b9f?q=80&w=800&auto=format&fit=crop', description: 'Steamed rice cakes' },
-            { id: crypto.randomUUID(), name: 'Chappathi', price: 30, category: 'Breakfast', image: 'https://images.unsplash.com/photo-1604908554027-321b77f21f42?q=80&w=800&auto=format&fit=crop', description: 'Whole wheat flatbread' },
-            { id: crypto.randomUUID(), name: 'Poori', price: 35, category: 'Breakfast', image: 'https://images.unsplash.com/photo-1625944526153-4d3b3d3d77f9?q=80&w=800&auto=format&fit=crop', description: 'Deep-fried bread' },
-            { id: crypto.randomUUID(), name: 'Vada', price: 15, category: 'Snacks', image: 'https://images.unsplash.com/photo-1631452180519-7bf2b8fe8e94?q=80&w=800&auto=format&fit=crop', description: 'Crispy lentil fritter' },
-            { id: crypto.randomUUID(), name: 'Dosa', price: 45, category: 'Breakfast', image: 'https://images.unsplash.com/photo-1630587148265-a6c2fa2a3434?q=80&w=800&auto=format&fit=crop', description: 'Crispy rice crepe' },
-            { id: crypto.randomUUID(), name: 'Coffee', price: 25, category: 'Beverages', image: 'https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=800&auto=format&fit=crop', description: 'Hot filter coffee' },
-            { id: crypto.randomUUID(), name: 'Tea', price: 20, category: 'Beverages', image: 'https://images.unsplash.com/photo-1517705008128-361805f42e86?q=80&w=800&auto=format&fit=crop', description: 'Masala chai' }
+            { id: crypto.randomUUID(), name: 'Idly', price: 20, category: 'Breakfast', image: 'https://raw.githubusercontent.com/krvaishnavi66-ux/Vibe-Restaurant-Images/main/idli.jpg', description: 'Steamed rice cakes' },
+            { id: crypto.randomUUID(), name: 'Chappathi', price: 30, category: 'Breakfast', image: 'https://raw.githubusercontent.com/krvaishnavi66-ux/Vibe-Restaurant-Images/main/chapathi.png', description: 'Whole wheat flatbread' },
+            { id: crypto.randomUUID(), name: 'Poori', price: 35, category: 'Breakfast', image: 'https://raw.githubusercontent.com/krvaishnavi66-ux/Vibe-Restaurant-Images/main/poori.jpg', description: 'Deep-fried bread' },
+            { id: crypto.randomUUID(), name: 'Vada', price: 15, category: 'Snacks', image: 'https://raw.githubusercontent.com/krvaishnavi66-ux/Vibe-Restaurant-Images/main/vada.jpg', description: 'Crispy lentil fritter' },
+            { id: crypto.randomUUID(), name: 'Dosa', price: 45, category: 'Breakfast', image: 'https://raw.githubusercontent.com/krvaishnavi66-ux/Vibe-Restaurant-Images/main/dosa.jpg', description: 'Crispy rice crepe' },
+            { id: crypto.randomUUID(), name: 'Coffee', price: 25, category: 'Beverages', image: 'https://raw.githubusercontent.com/krvaishnavi66-ux/Vibe-Restaurant-Images/main/coffee.jpg', description: 'Hot filter coffee' },
+            { id: crypto.randomUUID(), name: 'Tea', price: 20, category: 'Beverages', image: 'https://raw.githubusercontent.com/krvaishnavi66-ux/Vibe-Restaurant-Images/main/tea.jpg', description: 'Masala chai' }
         ];
         saveToStorage(KEYS.menu, items);
         return items;
